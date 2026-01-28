@@ -19,7 +19,7 @@ The solution is designed with **least-privilege IAM**, scalability, and operatio
 - Amazon S3 for event logging and artifacts
 - AWS Lambda for no-show detection and processing
 - IAM roles with least-privilege permissions
-- Event-driven workflow (future labs)
+- Event-driven workflow (future labs).
 
 ---
 
