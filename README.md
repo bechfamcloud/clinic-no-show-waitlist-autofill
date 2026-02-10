@@ -55,10 +55,10 @@ This project was successfully executed end-to-end using an Amazon EventBridge sc
   ]
 }
 
+---
 
 ## Project Structure
-```text
-.
+
 ├── docs/          # Architecture, design decisions, lab notes
 ├── infra/         # IAM policies and infrastructure artifacts
 ├── src/           # Lambda function source code
