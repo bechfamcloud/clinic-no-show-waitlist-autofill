@@ -23,9 +23,42 @@ The solution is designed with **least-privilege IAM**, scalability, and operatio
 
 ---
 
+## Execution Proof (EventBridge → Lambda)
+
+This project was successfully executed end-to-end using an Amazon EventBridge scheduled rule with a constant JSON payload.
+
+**Trigger**
+- Amazon EventBridge (Scheduled Rule – Fixed rate: 1 minute)
+- Input type: Constant JSON
+
+**Lambda Runtime**
+- Python 3.11
+- Memory: 128 MB
+- Avg execution time: ~2 ms
+
+**Verified CloudWatch Logs**
+- Lambda initialized successfully
+- START → END → REPORT lifecycle completed
+- No runtime or import errors
+- Invocation triggered automatically by EventBridge
+
+**Sample Event Payload**
+```json
+{
+  "appointment_iso": "2026-01-28T09:00:00Z",
+  "status": "SCHEDULED",
+  "now_iso": "2026-01-28T09:20:00Z",
+  "grace_minutes": 10,
+  "waitlist": [
+    { "patient_id": "P001", "priority": 1 },
+    { "patient_id": "P002", "priority": 2 }
+  ]
+}
+
+---
+
 ## Project Structure
-```text
-.
+
 ├── docs/          # Architecture, design decisions, lab notes
 ├── infra/         # IAM policies and infrastructure artifacts
 ├── src/           # Lambda function source code
